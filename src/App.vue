@@ -16,18 +16,20 @@ function storeName() {
 
 <template>
   <div class="screen">
-    <h1>OSI-Quiz</h1>
-    <input
-      type="text"
-      v-model="nameStore"
-      @keydown.enter="storeName()"
-      placeholder="Please enter your name:"
-      v-if="player.name === ''"
-    />
-    <div>
-      <h2>Your name: {{ player.name }}</h2>
-      <h2>Your points: {{ player.points }}</h2>
-    </div>
+    <header>
+      <div class="playerdata">
+        <h2>Your name: {{ player.name }}</h2>
+        <h2>Your points: {{ player.points }}</h2>
+      </div>
+      <h1>OSI-Quiz</h1>
+      <input
+        type="text"
+        v-model="nameStore"
+        @keydown.enter="storeName()"
+        placeholder="Please enter your name:"
+        v-if="player.name === ''"
+      />
+    </header>
   </div>
 </template>
 
@@ -39,7 +41,16 @@ function storeName() {
   background-color: burlywood;
 }
 
-input {
-  position: relative;
+header {
+  width: 100%;
+  justify-content: center;
+}
+
+.playerdata {
+  position: absolute;
+  left: 0;
+  width: 15em;
+  height: 5em;
+  text-align: center;
 }
 </style>
