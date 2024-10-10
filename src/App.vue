@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue";
+import { RouterLink } from "vue-router";
 
 let nameStore = ref("");
 
@@ -30,6 +31,10 @@ function storeName() {
         v-if="player.name === ''"
       />
     </header>
+    <nav>
+      <router-link to="/questionone">QuestionOne</router-link>
+    </nav>
+    <router-view></router-view>
   </div>
 </template>
 
