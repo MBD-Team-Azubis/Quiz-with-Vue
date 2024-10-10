@@ -19,29 +19,29 @@ function storeName() {
 
 <template>
   <div class="screen">
-    <header>
-      <div class="playerdata">
-        <h2>Your name: {{ player.name }}</h2>
-        <h2>Your points: {{ player.points }}</h2>
-      </div>
-      <h1>OSI-Quiz</h1>
-      <input
-        type="text"
-        v-model="nameStore"
-        @keydown.enter="storeName()"
-        placeholder="Please enter your name:"
-        v-if="player.name === ''"
-      />
-    </header>
+    <h1>OSI-Quiz</h1>
     <nav>
       <router-link to="/questionone">Question 1</router-link>
       <router-link to="/questiontwo">Question 2</router-link>
       <router-link to="/questionthree">Question 3</router-link>
       <router-link to="/questionfour">Question 4</router-link>
     </nav>
-    <router-view></router-view>
+    <div class="playerdata">
+      <h2>Your name: {{ player.name }}</h2>
+      <h2>Your points: {{ player.points }}</h2>
+    </div>
 
+    <input
+      type="text"
+      v-model="nameStore"
+      @keydown.enter="storeName()"
+      placeholder="Please enter your name:"
+      v-if="player.name === ''"
+    />
     <!-- <Test v-model="player2.points"></Test> -->
+
+    <div id="boxForQuestions"><router-view></router-view></div>
+    <div id="boxForAnswers"></div>
   </div>
 </template>
 
@@ -53,16 +53,37 @@ function storeName() {
   background-color: #bde0fe;
 }
 
-header {
-  width: 100%;
-  justify-content: center;
+h1 {
+  margin: 0;
+}
+
+input {
+  margin-top: 1em;
+  align-self: center;
 }
 
 .playerdata {
-  position: absolute;
+  /* position: absolute; */
   left: 0;
   width: 15em;
-  height: 5em;
+  height: 7em;
   border: 2px solid;
+}
+
+#boxForQuestions {
+  border: 2px solid black;
+  width: 30%;
+  height: 15rem;
+  align-content: center;
+  text-align: center;
+  margin-left: 35%;
+}
+
+#boxForAnswers {
+  border: 2px solid black;
+  width: 50%;
+  height: 30vh;
+  margin-top: 3%;
+  margin-left: 25%;
 }
 </style>
