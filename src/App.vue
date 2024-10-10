@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { ref, reactive } from "vue";
+import { ref } from "vue";
 import { RouterLink } from "vue-router";
-import FirstQuestion from "./components/FirstQuestion.vue";
+import { player } from "./state";
+// import Test from "./components/Test.vue";
 
 let nameStore = ref("");
 
-const player = reactive({
-  name: "",
-  points: 0,
-});
-
 function storeName() {
-  player.name = nameStore.value;
+  player.value.name = nameStore.value;
   console.log(player);
 }
-FirstQuestion;
+
+// const player2 = ref({
+//   name: "",
+//   points: 0,
+// });
 </script>
 
 <template>
@@ -34,9 +34,14 @@ FirstQuestion;
       />
     </header>
     <nav>
-      <router-link to="/questionone">QuestionOne</router-link>
+      <router-link to="/questionone">Question 1</router-link>
+      <router-link to="/questiontwo">Question 2</router-link>
+      <router-link to="/questionthree">Question 3</router-link>
+      <router-link to="/questionfour">Question 4</router-link>
     </nav>
     <router-view></router-view>
+
+    <!-- <Test v-model="player2.points"></Test> -->
   </div>
 </template>
 
@@ -45,7 +50,7 @@ FirstQuestion;
   margin: 0;
   height: 100vh;
   text-align: center;
-  background-color: burlywood;
+  background-color: #bde0fe;
 }
 
 header {
@@ -58,6 +63,6 @@ header {
   left: 0;
   width: 15em;
   height: 5em;
-  text-align: center;
+  border: 2px solid;
 }
 </style>

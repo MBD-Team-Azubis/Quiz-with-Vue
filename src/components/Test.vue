@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { player } from "../state";
+const points = defineModel<number>({ required: true });
 
 const questionOne = {
   answer1: 4,
@@ -14,7 +14,9 @@ const questionOne = {
     <h1>Question 1</h1>
     <h2>How many layer does the OSI-model consist of?</h2>
     <button>{{ questionOne.answer1 }}</button>
-    <button @click="player.points += 50">{{ questionOne.answer2 }}</button>
+    <button @click.stop="points += 50">
+      {{ questionOne.answer2 }}
+    </button>
     <button value="0">{{ questionOne.answer3 }}</button>
     <button value="0">{{ questionOne.answer4 }}</button>
   </div>
