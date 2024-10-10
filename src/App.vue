@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue";
 import { RouterLink } from "vue-router";
+import FirstQuestion from "./components/FirstQuestion.vue";
 
 let nameStore = ref("");
 
@@ -13,6 +14,7 @@ function storeName() {
   player.name = nameStore.value;
   console.log(player);
 }
+FirstQuestion;
 </script>
 
 <template>
