@@ -41,7 +41,6 @@ function storeName() {
     <!-- <Test v-model="player2.points"></Test> -->
 
     <div id="boxForQuestions"><router-view></router-view></div>
-    <div id="boxForAnswers"></div>
   </div>
 </template>
 
@@ -63,20 +62,13 @@ input {
 }
 
 .playerdata {
-  /* position: absolute; */
   left: 0;
   width: 15em;
   height: 7em;
   border: 2px solid;
-}
-
-#boxForQuestions {
-  border: 2px solid black;
-  width: 30%;
-  height: 15rem;
-  align-content: center;
-  text-align: center;
-  margin-left: 35%;
+  background-color: #c7f9cc;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 #boxForAnswers {
