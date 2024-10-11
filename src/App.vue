@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { RouterLink } from "vue-router";
 import { player } from "./state";
+import { buttonState } from "./buttonState";
 // import Test from "./components/Test.vue";
 
 let nameStore = ref("");
@@ -21,10 +22,46 @@ function storeName() {
   <div class="screen">
     <h1>OSI-Quiz</h1>
     <nav>
-      <router-link to="/questionone">Question 1</router-link>
-      <router-link to="/questiontwo">Question 2</router-link>
-      <router-link to="/questionthree">Question 3</router-link>
-      <router-link to="/questionfour">Question 4</router-link>
+      <router-link
+        @click="
+          buttonState.button1 = false;
+          buttonState.button2 = false;
+          buttonState.button3 = false;
+          buttonState.button4 = false;
+        "
+        to="/questionone"
+        >Question 1</router-link
+      >
+      <router-link
+        @click="
+          buttonState.button1 = false;
+          buttonState.button2 = false;
+          buttonState.button3 = false;
+          buttonState.button4 = false;
+        "
+        to="/questiontwo"
+        >Question 2</router-link
+      >
+      <router-link
+        @click="
+          buttonState.button1 = false;
+          buttonState.button2 = false;
+          buttonState.button3 = false;
+          buttonState.button4 = false;
+        "
+        to="/questionthree"
+        >Question 3</router-link
+      >
+      <router-link
+        @click="
+          buttonState.button1 = false;
+          buttonState.button2 = false;
+          buttonState.button3 = false;
+          buttonState.button4 = false;
+        "
+        to="/questionfour"
+        >Question 4</router-link
+      >
     </nav>
     <div class="playerdata">
       <h2>Your name: {{ player.name }}</h2>
@@ -57,11 +94,14 @@ h1 {
 }
 
 input {
-  margin-top: 1em;
   align-self: center;
+  position: absolute;
+  top: 14%;
+  left: 45.5%;
 }
 
 .playerdata {
+  margin-left: 1%;
   left: 0;
   width: 15em;
   height: 7em;
@@ -77,5 +117,12 @@ input {
   height: 30vh;
   margin-top: 3%;
   margin-left: 25%;
+}
+
+nav {
+  position: absolute;
+  font-size: x-large;
+  margin-left: 39%;
+  margin-top: 2%;
 }
 </style>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { player } from "../state";
+import { buttonState } from "../buttonState";
 
 const questionThree = {
   answer1: "Vermittlungsschicht",
@@ -16,10 +17,35 @@ const questionThree = {
       <h2>Was ist die dritte Schicht des OSI-Modells?</h2>
     </div>
     <div id="answers">
-      <button @click="player.points += 50">{{ questionThree.answer1 }}</button>
-      <button>{{ questionThree.answer2 }}</button>
-      <button>{{ questionThree.answer3 }}</button>
-      <button>{{ questionThree.answer4 }}</button>
+      <button
+        :class="{ 'is-green': buttonState.button1 }"
+        @click="
+          () => {
+            player.points += 50;
+            buttonState.button1 = true;
+          }
+        "
+      >
+        {{ questionThree.answer1 }}
+      </button>
+      <button
+        :class="{ 'is-red': buttonState.button2 }"
+        @click="buttonState.button2 = true"
+      >
+        {{ questionThree.answer2 }}
+      </button>
+      <button
+        :class="{ 'is-red': buttonState.button3 }"
+        @click="buttonState.button3 = true"
+      >
+        {{ questionThree.answer3 }}
+      </button>
+      <button
+        :class="{ 'is-red': buttonState.button4 }"
+        @click="buttonState.button4 = true"
+      >
+        {{ questionThree.answer4 }}
+      </button>
     </div>
   </div>
 </template>
@@ -32,6 +58,7 @@ const questionThree = {
   align-content: center;
   text-align: center;
   margin-left: 35%;
+  margin-top: 1%;
   background-color: #c7f9cc;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -45,6 +72,7 @@ const questionThree = {
   align-content: center;
   margin-left: 32.5%;
   margin-top: 2rem;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -60,5 +88,13 @@ button {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   font-size: x-large;
+}
+
+.is-red {
+  background: red;
+}
+
+.is-green {
+  background: greenyellow;
 }
 </style>
