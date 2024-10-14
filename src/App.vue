@@ -2,8 +2,6 @@
 import { ref } from "vue";
 import { RouterLink } from "vue-router";
 import { player } from "./state";
-import { buttonState } from "./buttonState";
-// import Test from "./components/Test.vue";
 
 let nameStore = ref("");
 
@@ -22,46 +20,10 @@ function storeName() {
   <div class="screen">
     <h1>OSI-Quiz</h1>
     <nav>
-      <router-link
-        @click="
-          buttonState.button1 = false;
-          buttonState.button2 = false;
-          buttonState.button3 = false;
-          buttonState.button4 = false;
-        "
-        to="/questionone"
-        >Question 1</router-link
-      >
-      <router-link
-        @click="
-          buttonState.button1 = false;
-          buttonState.button2 = false;
-          buttonState.button3 = false;
-          buttonState.button4 = false;
-        "
-        to="/questiontwo"
-        >Question 2</router-link
-      >
-      <router-link
-        @click="
-          buttonState.button1 = false;
-          buttonState.button2 = false;
-          buttonState.button3 = false;
-          buttonState.button4 = false;
-        "
-        to="/questionthree"
-        >Question 3</router-link
-      >
-      <router-link
-        @click="
-          buttonState.button1 = false;
-          buttonState.button2 = false;
-          buttonState.button3 = false;
-          buttonState.button4 = false;
-        "
-        to="/questionfour"
-        >Question 4</router-link
-      >
+      <router-link to="/questionone">Question 1</router-link>
+      <router-link to="/questiontwo">Question 2</router-link>
+      <router-link to="/questionthree">Question 3</router-link>
+      <router-link to="/questionfour">Question 4</router-link>
     </nav>
     <div class="playerdata">
       <h2>Your name: {{ player.name }}</h2>

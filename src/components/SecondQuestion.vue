@@ -1,7 +1,13 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { buttonState } from "../buttonState";
 import { player } from "../state";
+
+const buttonState = ref({
+  button1: false,
+  button2: false,
+  button3: false,
+  button4: false,
+});
 
 const questionTwo = {
   answer1: "open source interconnection model",

@@ -1,7 +1,13 @@
 <script setup lang="ts">
 import { player } from "../state";
-import { buttonState } from "../buttonState";
 import { ref } from "vue";
+
+const buttonState = ref({
+  button1: false,
+  button2: false,
+  button3: false,
+  button4: false,
+});
 
 const questionFour = {
   answer1: "1990",
