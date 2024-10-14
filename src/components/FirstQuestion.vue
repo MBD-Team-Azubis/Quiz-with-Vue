@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { player } from "../state";
 import { buttonState } from "../buttonState";
+import { ref } from "vue";
 
 const questionOne = {
   answer1: 4,
@@ -8,6 +9,14 @@ const questionOne = {
   answer3: 5,
   answer4: 8,
 };
+
+const correctAnswer = ref(false);
+const disableButtons = ref(false);
+
+// function disableButtons() {
+//   if (wrongAnswer.value === true) {
+//   }
+// }
 </script>
 
 <template>
@@ -18,31 +27,54 @@ const questionOne = {
     </div>
     <div id="answers">
       <button
+        :disabled="disableButtons"
         :class="{ 'is-red': buttonState.button1 }"
-        @click="buttonState.button1 = true"
+        @click="
+          () => {
+            buttonState.button1 = true;
+            correctAnswer = true;
+            disableButtons = true;
+          }
+        "
       >
         {{ questionOne.answer1 }}
       </button>
       <button
-        :class="{ 'is-green': buttonState.button2 }"
+        :disabled="disableButtons"
+        :class="{ 'is-green': correctAnswer }"
         @click="
           () => {
             player.points += 50;
-            buttonState.button2 = true;
+            correctAnswer = true;
+            disableButtons = true;
           }
         "
       >
         {{ questionOne.answer2 }}
       </button>
       <button
+        :disabled="disableButtons"
         :class="{ 'is-red': buttonState.button3 }"
-        @click="buttonState.button3 = true"
+        @click="
+          () => {
+            buttonState.button3 = true;
+            correctAnswer = true;
+            disableButtons = true;
+          }
+        "
       >
         {{ questionOne.answer3 }}
       </button>
       <button
+        :disabled="disableButtons"
         :class="{ 'is-red': buttonState.button4 }"
-        @click="buttonState.button4 = true"
+        @click="
+          () => {
+            buttonState.button4 = true;
+            correctAnswer = true;
+            disableButtons = true;
+          }
+        "
       >
         {{ questionOne.answer4 }}
       </button>

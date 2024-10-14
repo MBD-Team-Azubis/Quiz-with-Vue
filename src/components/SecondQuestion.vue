@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import { buttonState } from "../buttonState";
 import { player } from "../state";
 
@@ -9,7 +10,8 @@ const questionTwo = {
   answer4: "open systems interface model",
 };
 
-// const buttonState = ref(false);
+const correctAnswer = ref(false);
+const disableButtons = ref(false);
 </script>
 
 <template>
@@ -20,31 +22,54 @@ const questionTwo = {
     </div>
     <div id="answers">
       <button
+        :disabled="disableButtons"
         :class="{ 'is-red': buttonState.button1 }"
-        @click="buttonState.button1 = true"
+        @click="
+          () => {
+            buttonState.button1 = true;
+            correctAnswer = true;
+            disableButtons = true;
+          }
+        "
       >
         {{ questionTwo.answer1 }}
       </button>
       <button
+        :disabled="disableButtons"
         :class="{ 'is-red': buttonState.button2 }"
-        @click="buttonState.button2 = true"
+        @click="
+          () => {
+            buttonState.button2 = true;
+            correctAnswer = true;
+            disableButtons = true;
+          }
+        "
       >
         {{ questionTwo.answer2 }}
       </button>
       <button
-        :class="{ 'is-green': buttonState.button3 }"
+        :disabled="disableButtons"
+        :class="{ 'is-green': correctAnswer }"
         @click="
           () => {
             player.points += 50;
-            buttonState.button3 = true;
+            correctAnswer = true;
+            disableButtons = true;
           }
         "
       >
         {{ questionTwo.answer3 }}
       </button>
       <button
+        :disabled="disableButtons"
         :class="{ 'is-red': buttonState.button4 }"
-        @click="buttonState.button4 = true"
+        @click="
+          () => {
+            buttonState.button4 = true;
+            correctAnswer = true;
+            disableButtons = true;
+          }
+        "
       >
         {{ questionTwo.answer4 }}
       </button>

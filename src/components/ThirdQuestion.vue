@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { player } from "../state";
 import { buttonState } from "../buttonState";
+import { ref } from "vue";
 
 const questionThree = {
   answer1: "Vermittlungsschicht",
@@ -8,6 +9,9 @@ const questionThree = {
   answer3: "Bitübertragungsschicht",
   answer4: "Darstellungsübersicht",
 };
+
+const correctAnswer = ref(false);
+const disableButtons = ref(false);
 </script>
 
 <template>
@@ -18,31 +22,54 @@ const questionThree = {
     </div>
     <div id="answers">
       <button
-        :class="{ 'is-green': buttonState.button1 }"
+        :disabled="disableButtons"
+        :class="{ 'is-green': correctAnswer }"
         @click="
           () => {
             player.points += 50;
-            buttonState.button1 = true;
+            correctAnswer = true;
+            disableButtons = true;
           }
         "
       >
         {{ questionThree.answer1 }}
       </button>
       <button
+        :disabled="disableButtons"
         :class="{ 'is-red': buttonState.button2 }"
-        @click="buttonState.button2 = true"
+        @click="
+          () => {
+            buttonState.button2 = true;
+            correctAnswer = true;
+            disableButtons = true;
+          }
+        "
       >
         {{ questionThree.answer2 }}
       </button>
       <button
+        :disabled="disableButtons"
         :class="{ 'is-red': buttonState.button3 }"
-        @click="buttonState.button3 = true"
+        @click="
+          () => {
+            buttonState.button3 = true;
+            correctAnswer = true;
+            disableButtons = true;
+          }
+        "
       >
         {{ questionThree.answer3 }}
       </button>
       <button
+        :disabled="disableButtons"
         :class="{ 'is-red': buttonState.button4 }"
-        @click="buttonState.button4 = true"
+        @click="
+          () => {
+            buttonState.button4 = true;
+            correctAnswer = true;
+            disableButtons = true;
+          }
+        "
       >
         {{ questionThree.answer4 }}
       </button>
