@@ -21,7 +21,7 @@ const disableButtons = ref(false);
 </script>
 
 <template>
-  <div>
+  <div style="display: flex; flex-direction: column; align-items: center">
     <div id="question">
       <h1>Question 3</h1>
       <h2>Was ist die dritte Schicht des OSI-Modells?</h2>
@@ -90,8 +90,7 @@ const disableButtons = ref(false);
   height: 15rem;
   align-content: center;
   text-align: center;
-  margin-left: 35%;
-  margin-top: 1%;
+  margin-top: 10px;
   background-color: #c7f9cc;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -103,7 +102,6 @@ const disableButtons = ref(false);
   width: 35%;
   height: 25rem;
   align-content: center;
-  margin-left: 32.5%;
   margin-top: 2rem;
 
   display: flex;

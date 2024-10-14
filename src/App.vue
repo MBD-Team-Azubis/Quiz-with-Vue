@@ -77,14 +77,13 @@ input {
   border: 2px solid black;
   width: 50%;
   height: 30vh;
-  margin-top: 3%;
-  margin-left: 25%;
 }
 
 nav {
   position: absolute;
-  font-size: x-large;
-  margin-left: 39%;
-  margin-top: 2%;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 </style>
